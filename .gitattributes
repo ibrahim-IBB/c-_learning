@@ -1,0 +1,11 @@
+# Never modify line endings in binary files — corruption risk otherwise
+*.dll binary
+*.a binary
+*.lib binary
+*.exe binary
+*.png binary
+*.ico binary
+*.ttf binary
+*.otf binary
+*.wav binary
+*.ogg binary

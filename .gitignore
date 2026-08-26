@@ -1,0 +1,19 @@
+# Build output — fully regeneratable, never commit
+build/
+downloads_folder/
+
+# Compiled objects/binaries
+*.obj
+*.exe
+*.dll.a
+*.pdb
+
+# CMake-generated files (if any leak outside build/)
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+
+# Editor/IDE clutter
+.vs/
+.vscode/
+*.user
