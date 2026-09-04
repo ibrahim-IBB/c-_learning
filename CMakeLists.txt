@@ -9,9 +9,26 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # ------------------------------------------------------------------
 # Executable
 # ------------------------------------------------------------------
-add_executable(MyGame
+set(SOURCES
     src/main.cpp
+    src/core/game.cpp
+    src/core/InputManager.cpp
+    src/core/Renderer.cpp
+    src/core/GameObject.cpp
+    src/core/ObjectManager.cpp
+
 )
+
+set(HEADERS
+    src/core/game.h
+    src/core/InputManager.h
+    src/core/Renderer.h
+    src/core/GameObject.h
+    src/core/ObjectManager.h
+
+)
+
+add_executable(MyGame ${SOURCES} ${HEADERS})
 
 # ------------------------------------------------------------------
 # SDL3 headers + library search path
@@ -20,7 +37,7 @@ target_include_directories(MyGame PRIVATE vendor/include)
 target_link_directories(MyGame PRIVATE vendor/lib)
 
 target_link_libraries(MyGame PRIVATE
-    SDL3
+    SDL3 
     SDL3_image
 
 )
@@ -45,20 +62,13 @@ add_custom_command(TARGET MyGame POST_BUILD
 # Runs once at configure time; skipped on subsequent reconfigures.
 # ------------------------------------------------------------------
 if(NOT EXISTS ${CMAKE_BINARY_DIR}/assets)
-    if(WIN32)
-        execute_process(
-            COMMAND cmd /c mklink /J "${CMAKE_BINARY_DIR}/assets" "${CMAKE_SOURCE_DIR}/assets"
-        )
-    else()
-        file(CREATE_LINK ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/assets SYMBOLIC)
-    endif()
+    file(CREATE_LINK ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/assets SYMBOLIC)
 endif()
-
 # ------------------------------------------------------------------
 # Convenience: build + run in one command
 #   cmake --build build --target run
 # ------------------------------------------------------------------
-add_custom_target(run POST_BUILD
+add_custom_target(run 
     COMMAND MyGame
     DEPENDS MyGame
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}

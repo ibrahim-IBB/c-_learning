@@ -1,9 +1,14 @@
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
+
+#include "core/game.h"
+
+int main(int argc, char* argv[]) {
+ 
+    Game MyGame;
 
 
-int main(int argc,char * argv[]){
-
+    MyGame.init("my Game",1000,800);
+    MyGame.run();
+    MyGame.end();
 
     return 0;
 }
