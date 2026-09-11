@@ -14,8 +14,11 @@ set(SOURCES
     src/core/game.cpp
     src/core/InputManager.cpp
     src/core/Renderer.cpp
-    src/core/GameObject.cpp
+    src/core/SceneObjects/GameObject.cpp
+    src/core/SceneObjects/Sprite.cpp
     src/core/ObjectManager.cpp
+    src/utils/AnimationData.cpp
+    src/game/Player.cpp
 
 )
 
@@ -23,8 +26,11 @@ set(HEADERS
     src/core/game.h
     src/core/InputManager.h
     src/core/Renderer.h
-    src/core/GameObject.h
+    src/core/SceneObjects/GameObject.h
+    src/core/SceneObjects/Sprite.h
     src/core/ObjectManager.h
+    src/utils/AnimationData.h
+    src/game/Player.h
 
 )
 

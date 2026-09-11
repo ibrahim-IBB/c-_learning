@@ -1,5 +1,5 @@
 #pragma once
-#include "GameObject.h"
+#include "SceneObjects/GameObject.h"
 #include <vector>
 class ObjectManager{
 

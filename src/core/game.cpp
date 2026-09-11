@@ -1,5 +1,6 @@
 #include "game.h"
-#include "GameObject.h"
+#include "SceneObjects/GameObject.h"
+#include "../game/Player.h"
 
 
 
@@ -24,12 +25,18 @@ bool Game::init(const char *title,int width,int height){
       
         Render_Engine.RendererInit(renderer);
 
+        
+        Player *s = new Player(10,10,160,160);
+   
+        
+        s->StartAnimation();
+        GameObject * g=s;
+        s->SetTexture(renderer,"assets/Walking");
 
-        //make a object to draw
-        GameObject *g=new GameObject(30,30,150,150);
-        g->SetTexture(renderer,"assets/Walking.bmp",12,1);
         
         obj_manager.pushGameObject(g);
+
+   
         return true;
         
 }

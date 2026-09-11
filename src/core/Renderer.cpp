@@ -17,7 +17,7 @@ void Renderer::ClearRender(){
 void Renderer::Render(ObjectManager * obj_manager){
     const auto& ObjectList =obj_manager->GetObjectList();
    for(auto it = ObjectList.begin(); it != ObjectList.end() ; ++it){
-   (*it)->RenderSprite(renderer);
+   (*it)->Render(renderer);
    }
    
 }
